@@ -1,0 +1,24 @@
+<h1 align="center">Список статей</h1>
+ 
+<table border>
+  <tr>
+    <th>Заголовок</th>
+    <th>Текст</th>
+    <th>Действие</th>
+  </tr>
+ 
+  <% @articles.each do |article| %>
+    <tr>
+      <td align="center"><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td align="center"><%= link_to 'Показать', article_path(article) %></td>
+      <td align="center"><%= link_to 'Изменить', edit_article_path(article) %></td>
+      <td><%= link_to 'Удалить', article_path(article),method: :delete,
+              data: { confirm: 'Подтверждаете удаление?' } 
+             %>
+                
+              </td>
+    </tr>
+
+  <% end %>
+</table>
